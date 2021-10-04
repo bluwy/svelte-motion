@@ -2,8 +2,6 @@
 	import { createTransition } from '$lib';
 	import { fade, draw } from '$lib/compat';
 
-	export let name;
-
 	let visible = false;
 
 	const expand = createTransition((_o, el) => ({
@@ -15,7 +13,7 @@
 <section>
 	<label>
 		<input type="checkbox" bind:checked={visible} />
-		{name}
+		Draw
 	</label>
 
 	{#if visible}
