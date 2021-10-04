@@ -11,12 +11,19 @@
 		{name}
 	</label>
 	{#if visible}
-		<div transition:transition={opts} style="background: red;">{name}</div>
+		<div class="target" transition:transition={opts} />
 	{/if}
 </section>
 
 <style>
 	section {
 		height: 100px;
+	}
+
+	.target {
+		background-color: #ff3e00;
+		width: 70px;
+		height: 70px;
+		border-radius: 1rem;
 	}
 </style>

@@ -38,13 +38,13 @@
 
 <style>
 	section {
-		height: 400px;
+		height: 300px;
 	}
 
 	svg {
 		display: block;
-		width: 400px;
-		height: 400px;
+		width: 270px;
+		height: 270px;
 	}
 
 	path {
