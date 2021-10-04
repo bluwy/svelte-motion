@@ -11,7 +11,7 @@
 		{name}
 	</label>
 	{#if visible}
-		<div transition:transition={opts}>{name}</div>
+		<div transition:transition={opts} style="background: red;">{name}</div>
 	{/if}
 </section>
 

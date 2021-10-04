@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { fade, blur, slide, scale, fly } from '$lib';
 	import Group from './_group.svelte';
+	import Path from './_path.svelte';
 </script>
 
 <h1>Welcome to SvelteKit</h1>
@@ -11,3 +12,4 @@
 <Group name="Slide" transition={slide} />
 <Group name="Scale" transition={scale} />
 <Group name="Fly" transition={fly} opts={{ y: 10 }} />
+<Path name="Draw" />

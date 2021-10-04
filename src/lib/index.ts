@@ -6,10 +6,10 @@ type Options = AnimationListOptions & { speed?: number };
 export function createTransition<T = {}>(
 	keyframes:
 		| MotionKeyframesDefinition
-		| ((o: Options & T, el: HTMLElement) => MotionKeyframesDefinition),
+		| ((o: Options & T, el: Element) => MotionKeyframesDefinition),
 	options?: Options
 ) {
-	return (el: HTMLElement, opts?: Options & T) => {
+	return (el: Element, opts?: Options & T) => {
 		const mergedOptions = {
 			delay: 0,
 			duration: 0.2,
@@ -111,12 +111,12 @@ export interface DrawParams {
 
 export const draw = createTransition<ScaleParams>((o, el) => {
 	// @ts-expect-error
-	// let len = el.getTotalLength ? el.getTotalLength() : 1;
+	let len = el.getTotalLength ? el.getTotalLength() : 1;
 
-	// const style = getComputedStyle(el);
-	// if (style.strokeLinecap !== 'butt') {
-	// 	len += parseInt(style.strokeWidth);
-	// }
+	const style = getComputedStyle(el);
+	if (style.strokeLinecap !== 'butt') {
+		len += parseInt(style.strokeWidth);
+	}
 
 	// if (o.speed === undefined) {
 	// 	o.duration = 800;
@@ -125,7 +125,7 @@ export const draw = createTransition<ScaleParams>((o, el) => {
 	// 	}
 
 	return {
-		strokeDashoffset: [0, null],
+		strokeDasharray: [`0 ${len}`, `${len} 0`],
 		visibility: 'visible'
 	};
 });
