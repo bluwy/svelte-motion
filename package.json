@@ -12,12 +12,12 @@
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
-    "motion": "^10.0.0",
+    "motion": "^10.1.4",
     "prettier": "^2.4.1",
     "prettier-plugin-svelte": "^2.4.0",
-    "svelte": "^3.42.6",
+    "svelte": "^3.43.1",
     "svelte-check": "^2.2.6",
-    "svelte-preprocess": "^4.9.4",
+    "svelte-preprocess": "^4.9.8",
     "tslib": "^2.3.1",
     "typescript": "^4.4.3"
   },
