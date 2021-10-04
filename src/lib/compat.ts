@@ -1,11 +1,11 @@
 import {
+	createTransition,
 	fade as _fade,
 	blur as _blur,
 	fly as _fly,
 	slide as _slide,
 	scale as _scale,
-	draw as _draw,
-	createTransition
+	draw as _draw
 } from './index';
 
 function wrapCompat<T extends ReturnType<typeof createTransition>>(transition: T): T {
