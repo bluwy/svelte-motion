@@ -12,7 +12,7 @@ export function createTransition<T = {}>(
 	return (el: Element, opts?: Options & T) => {
 		const mergedOptions = {
 			delay: 0,
-			duration: 0.2,
+			duration: 0.4,
 			...options,
 			...opts
 		};
@@ -22,10 +22,6 @@ export function createTransition<T = {}>(
 			typeof keyframes === 'function' ? keyframes(mergedOptions, el) : keyframes,
 			mergedOptions
 		);
-
-		if (mergedOptions.speed) {
-			animation.playbackRate = mergedOptions.speed;
-		}
 
 		el.addEventListener('introstart', handleIntroStart);
 		el.addEventListener('introend', handleIntroEnd);
@@ -118,11 +114,11 @@ export const draw = createTransition<ScaleParams>((o, el) => {
 		len += parseInt(style.strokeWidth);
 	}
 
-	// if (o.speed === undefined) {
-	// 	o.duration = 800;
-	// } else {
-	// 	o.duration = len / o.speed;
-	// 	}
+	if (o.speed === undefined) {
+		o.duration = 0.8;
+	} else {
+		o.duration = len / o.speed;
+	}
 
 	return {
 		strokeDasharray: [`0 ${len}`, `${len} 0`],
