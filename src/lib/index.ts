@@ -80,15 +80,18 @@ export const fly = createTransition<FlyParams>((o) => ({
 	transform: [`translate(${o.x ?? 0}px, ${o.y ?? 0}px)`, 'translate(0px, 0px)']
 }));
 
-export const slide = createTransition({
-	overflow: ['hidden', 'visible'],
-	height: [0, undefined],
-	paddingTop: [0, undefined],
-	paddingBottom: [0, undefined],
-	marginTop: [0, undefined],
-	marginBottom: [0, undefined],
-	borderTopWidth: [0, undefined],
-	borderBottomWidth: [0, undefined]
+export const slide = createTransition((_o, el) => {
+	const style = getComputedStyle(el);
+	return {
+		overflow: ['hidden', 'visible'],
+		height: [0, style.height],
+		paddingTop: [0, style.paddingTop],
+		paddingBottom: [0, style.paddingBottom],
+		marginTop: [0, style.marginTop],
+		marginBottom: [0, style.marginBottom],
+		borderTopWidth: [0, style.borderTopWidth],
+		borderBottomWidth: [0, style.borderBottomWidth]
+	};
 });
 
 export interface ScaleParams {
