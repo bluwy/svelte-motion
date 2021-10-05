@@ -24,7 +24,6 @@ export function createTransition<T = {}>(
 		);
 
 		el.addEventListener('introstart', handleIntroStart);
-		el.addEventListener('introend', handleIntroEnd);
 		el.addEventListener('outrostart', handleOutroStart);
 		el.addEventListener('outroend', handleOutroEnd);
 
@@ -37,10 +36,6 @@ export function createTransition<T = {}>(
 			animation.play();
 		}
 
-		function handleIntroEnd() {
-			// animation.finish();
-		}
-
 		function handleOutroStart() {
 			animation.reverse();
 		}
@@ -48,6 +43,7 @@ export function createTransition<T = {}>(
 		function handleOutroEnd() {
 			animation.cancel();
 			el.removeEventListener('introstart', handleIntroStart);
+			el.removeEventListener('outrostart', handleOutroStart);
 			el.removeEventListener('outroend', handleOutroEnd);
 		}
 	};
