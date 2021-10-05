@@ -58,8 +58,8 @@ interface BlurParams {
 	opacity?: number;
 }
 
-export const blur = createTransition<BlurParams>((o) => ({
-	opacity: [o.opacity ?? 0, undefined],
+export const blur = createTransition<BlurParams>((o, el) => ({
+	opacity: [o.opacity ?? 0, getComputedStyle(el).opacity],
 	filter: [`blur(${o.amount ?? 5}px)`, 'blur(0px)']
 }));
 
@@ -69,8 +69,8 @@ interface FlyParams {
 	opacity?: number;
 }
 
-export const fly = createTransition<FlyParams>((o) => ({
-	opacity: [o.opacity ?? 0, undefined],
+export const fly = createTransition<FlyParams>((o, el) => ({
+	opacity: [o.opacity ?? 0, getComputedStyle(el).opacity],
 	transform: [`translate(${o.x ?? 0}px, ${o.y ?? 0}px)`, 'translate(0px, 0px)']
 }));
 
@@ -93,8 +93,8 @@ export interface ScaleParams {
 	opacity?: number;
 }
 
-export const scale = createTransition<ScaleParams>((o) => ({
-	opacity: [o.opacity ?? 0, undefined],
+export const scale = createTransition<ScaleParams>((o, el) => ({
+	opacity: [o.opacity ?? 0, getComputedStyle(el).opacity],
 	transform: [`scale(${o.start ?? 0})`, 'scale(1)']
 }));
 
