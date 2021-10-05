@@ -1,38 +1,21 @@
-# create-svelte
+# svelte-motion
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+Experimental [web animations](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) support for Svelte transitions, powered by [Motion](https://motion.dev/).
 
-## Creating a project
+> Not an npm package yet
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Try it out
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+https://svelte-motion.netlify.app
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
+And read [the code](src/lib).
 
-> Note: the `@next` is temporary
+## Limitations
 
-## Developing
+- No elastic and bounce easing. Web animations don't support those, so they require dynamic keyframe generation, similar to how Svelte's CSS transition work. Not implemented yet.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- No custom easing functions. Use CSS easing functions instead.
 
-```bash
-npm run dev
+## License
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
-
-```bash
-npm run build
-```
-
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+MIT

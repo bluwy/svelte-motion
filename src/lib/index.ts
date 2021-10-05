@@ -1,4 +1,5 @@
-import { animate, Easing } from 'motion';
+import { animate } from 'motion';
+import type { Easing } from 'motion';
 import type { AnimationListOptions, MotionKeyframesDefinition } from 'motion';
 
 // Allow strings for vanilla cubic-bezier syntax
