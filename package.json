@@ -11,6 +11,7 @@
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ./**/*.{js,ts,svelte,html,css,md}"
   },
   "devDependencies": {
+    "@sveltejs/adapter-static": "^1.0.0-next.20",
     "@sveltejs/kit": "next",
     "motion": "^10.1.4",
     "prettier": "^2.4.1",

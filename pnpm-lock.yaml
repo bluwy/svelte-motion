@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@sveltejs/adapter-static': ^1.0.0-next.20
   '@sveltejs/kit': next
   motion: ^10.1.4
   prettier: ^2.4.1
@@ -12,6 +13,7 @@ specifiers:
   typescript: ^4.4.3
 
 devDependencies:
+  '@sveltejs/adapter-static': 1.0.0-next.20
   '@sveltejs/kit': 1.0.0-next.179_svelte@3.43.1
   motion: 10.1.4
   prettier: 2.4.1
@@ -64,6 +66,10 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.0
+    dev: true
+
+  /@sveltejs/adapter-static/1.0.0-next.20:
+    resolution: {integrity: sha512-vutVoloX35E6QnnrNofToOWn/er/Li2yoR15NbTPZ26Gp3M6A2ckQJNMJrDbBA5XZsktNIXchIVGaADnKIJrow==}
     dev: true
 
   /@sveltejs/kit/1.0.0-next.179_svelte@3.43.1:
