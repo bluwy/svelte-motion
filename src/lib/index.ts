@@ -1,7 +1,8 @@
-import { animate } from 'motion';
+import { animate, Easing } from 'motion';
 import type { AnimationListOptions, MotionKeyframesDefinition } from 'motion';
 
-type Options = AnimationListOptions & { speed?: number };
+// Allow strings for vanilla cubic-bezier syntax
+type Options = AnimationListOptions & { easing: Easing | Easing[] | string };
 
 export function createTransition<T = {}>(
 	keyframes:
@@ -97,11 +98,10 @@ export const scale = createTransition<ScaleParams>((o) => ({
 }));
 
 export interface DrawParams {
-	start?: number;
-	opacity?: number;
+	speed?: number;
 }
 
-export const draw = createTransition<ScaleParams>((o, el) => {
+export const draw = createTransition<DrawParams>((o, el) => {
 	// @ts-expect-error
 	let len = el.getTotalLength ? el.getTotalLength() : 1;
 
