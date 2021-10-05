@@ -7,13 +7,15 @@ import {
 	scale as _scale,
 	draw as _draw
 } from './index';
+import * as easings from './easing';
 
 function wrapCompat<T extends ReturnType<typeof createTransition>>(transition: T): T {
 	// @ts-expect-error
 	return function () {
-		const { delay, duration } = arguments[1] ?? {};
+		const { delay, duration, easing } = arguments[1] ?? {};
 		if (typeof delay === 'number') arguments[1].delay = delay / 1000;
 		if (typeof duration === 'number') arguments[1].duration = duration / 1000;
+		if (typeof easing === 'function') arguments[1].easing = easings[easing.name];
 		return transition.apply(this, arguments) as T;
 	};
 }
