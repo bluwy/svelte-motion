@@ -24,3 +24,17 @@ export const fly = wrapCompat(_fly);
 export const slide = wrapCompat(_slide);
 export const scale = wrapCompat(_scale);
 export const draw = wrapCompat(_draw);
+
+export { crossfade } from 'svelte/transition';
+
+export type {
+	BlurParams,
+	CrossfadeParams,
+	DrawParams,
+	EasingFunction,
+	FadeParams,
+	FlyParams,
+	ScaleParams,
+	SlideParams,
+	TransitionConfig
+} from 'svelte/transition';
