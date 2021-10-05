@@ -3,7 +3,7 @@ import type { Easing } from 'motion';
 import type { AnimationListOptions, MotionKeyframesDefinition } from 'motion';
 
 // Allow strings for vanilla cubic-bezier syntax
-type Options = AnimationListOptions & { easing: Easing | Easing[] | string };
+type Options = Omit<AnimationListOptions, 'easing'> & { easing?: Easing | Easing[] | string };
 
 export function createTransition<T = {}>(
 	keyframes:
