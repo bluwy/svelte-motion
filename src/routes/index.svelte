@@ -12,8 +12,9 @@
 	import Tada from './_components/Tada.svelte';
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>Svelte Motion</h1>
+<p>Experimental web animations support for Svelte transitions</p>
+<p><a href="https://github.com/bluwy/svelte-motion">GitHub repo</a></p>
 
 <div class="box">
 	<h2>Web animations</h2>
