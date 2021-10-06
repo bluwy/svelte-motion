@@ -3,12 +3,14 @@ import type { AnimationListOptions, Easing, MotionKeyframesDefinition } from 'mo
 import { cubicInOut, cubicOut } from './easing';
 
 // Allow strings for vanilla cubic-bezier syntax
-type Options = Omit<AnimationListOptions, 'easing'> & { easing?: Easing | Easing[] | string };
+type Options = Omit<AnimationListOptions, 'easing'> & {
+	easing?: Easing | Easing[] | string;
+};
 
 export function createTransition<T = {}>(
 	keyframes:
 		| MotionKeyframesDefinition
-		| ((o: Options & T, el: Element) => MotionKeyframesDefinition),
+		| ((el: Element, o: Options & T) => MotionKeyframesDefinition),
 	options?: Options
 ) {
 	return (el: Element, opts?: Options & T) => {
@@ -21,7 +23,7 @@ export function createTransition<T = {}>(
 
 		const animation = animate(
 			el,
-			typeof keyframes === 'function' ? keyframes(mergedOptions, el) : keyframes,
+			typeof keyframes === 'function' ? keyframes(el, mergedOptions) : keyframes,
 			// @ts-expect-error
 			mergedOptions
 		);
@@ -60,7 +62,7 @@ interface BlurParams {
 }
 
 export const blur = createTransition<BlurParams>(
-	(o, el) => ({
+	(el, o) => ({
 		opacity: [o.opacity ?? 0, getComputedStyle(el).opacity],
 		filter: [`blur(${o.amount ?? 5}px)`, 'blur(0px)']
 	}),
@@ -74,7 +76,7 @@ interface FlyParams {
 }
 
 export const fly = createTransition<FlyParams>(
-	(o, el) => ({
+	(el, o) => ({
 		opacity: [o.opacity ?? 0, getComputedStyle(el).opacity],
 		transform: [`translate(${o.x ?? 0}px, ${o.y ?? 0}px)`, 'translate(0px, 0px)']
 	}),
@@ -82,7 +84,7 @@ export const fly = createTransition<FlyParams>(
 );
 
 export const slide = createTransition(
-	(_o, el) => {
+	(el) => {
 		const style = getComputedStyle(el);
 		return {
 			overflow: ['hidden', 'visible'],
@@ -104,7 +106,7 @@ export interface ScaleParams {
 }
 
 export const scale = createTransition<ScaleParams>(
-	(o, el) => ({
+	(el, o) => ({
 		opacity: [o.opacity ?? 0, getComputedStyle(el).opacity],
 		transform: [`scale(${o.start ?? 0})`, 'scale(1)']
 	}),
@@ -116,7 +118,7 @@ export interface DrawParams {
 }
 
 export const draw = createTransition<DrawParams>(
-	(o, el) => {
+	(el, o) => {
 		// @ts-expect-error
 		let len = el.getTotalLength ? el.getTotalLength() : 1;
 

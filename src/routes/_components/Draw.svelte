@@ -4,7 +4,7 @@
 
 	let visible = false;
 
-	const expand = createTransition((_o, el) => ({
+	const expand = createTransition((el) => ({
 		opacity: [0, 1],
 		strokeWidth: [0, getComputedStyle(el).strokeWidth]
 	}));
