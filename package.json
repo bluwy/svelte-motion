@@ -16,7 +16,7 @@
     "motion": "^10.1.4",
     "prettier": "^2.4.1",
     "prettier-plugin-svelte": "^2.4.0",
-    "svelte": "^3.43.1",
+    "svelte": "^3.49.0",
     "svelte-check": "^2.2.6",
     "svelte-preprocess": "^4.9.8",
     "tslib": "^2.3.1",
